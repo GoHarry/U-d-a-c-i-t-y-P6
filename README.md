@@ -6,7 +6,7 @@ All tests pass.
 ##The following Feed Reader features are tested:
 
 
-### Test Suit: RSS Feeds:
+### Test Suit: "RSS Feeds"
 
 ensures that variable allFeeds is defined and not empty
 ensures that each feed has a defined url and that each url is not empty
