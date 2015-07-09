@@ -29,9 +29,9 @@ ensures that the content changes when a new feed is loaded by the loadFeed funct
 
 ### References
 
-####Udacity Feed Reader Testing course
-####www.google.com
-####jasmine.github.io
-####http://jasmine.github.io/2.0/introduction.html
-####https://en.wikipedia.org/wiki/Jasmine_(JavaScript_framework)
-####http://www.htmlgoodies.com/beyond/javascript/testing-javascript-using-the-jasmine-framework.html
+* Udacity Feed Reader Testing course
+* www.google.com
+* jasmine.github.io
+* http://jasmine.github.io/2.0/introduction.html
+* https://en.wikipedia.org/wiki/Jasmine_(JavaScript_framework)
+* http://www.htmlgoodies.com/beyond/javascript/testing-javascript-using-the-jasmine-framework.html
