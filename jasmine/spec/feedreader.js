@@ -58,7 +58,6 @@ $(function() {
     });
 
     /* Test suite: "The menu" */
-    
     describe('The menu', function() {
         
         /* Action: Write a test that ensures the menu element is
@@ -92,7 +91,6 @@ $(function() {
     });
 
     /* Test suite: "Initial Entries" */
-    
     describe('Initial Entries', function(){
         beforeEach(function(done){
         loadFeed(0, done);
@@ -114,29 +112,27 @@ $(function() {
         
 
     /* Test suite: "New Feed Selection"*/
-    
     describe('New Feed Selection', function(){
         var entry,
-            entryAfterchange;
+            entryAfterChange;
 
         /* Action: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-      
         beforeEach(function(done){
             $('.feed').empty();
              loadFeed(3, function() {
                 entry = $('.feed').html();
                 loadFeed(1, function(){
-                entryAfterchange = $('.feed').html();
+                entryAfterChange = $('.feed').html();
                 done();
                 });
             });
     });
     
         it("new loadFeed changes content", function() {
-            expect(entry).not.toEqual(entryAfterchange);
+            expect(entry).not.toEqual(entryAfterChange);
         });
     });
 }());
