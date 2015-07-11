@@ -11,6 +11,7 @@
 $(function() {
     /* Test Suit: "RSS Feeds."" */
     describe('RSS Feeds', function() {
+    
         /* This makes sure that the allFeeds variable has been defined 
          and it is not empty. 
          */
@@ -56,26 +57,27 @@ $(function() {
         });
     });
 
-/* Test suite: "The menu" */
+    /* Test suite: "The menu" */
     
     describe('The menu', function() {
         
-     /* Action: Write a test that ensures the menu element is
-      * hidden by default. You'll have to analyze the HTML and
-      * the CSS to determine how we're performing the
-      * hiding/showing of the menu element.
-      */
+        /* Action: Write a test that ensures the menu element is
+         * hidden by default. You'll have to analyze the HTML and
+         * the CSS to determine how we're performing the
+         * hiding/showing of the menu element.
+         */
         it('menu is hidden by default', function(){
             var body = $('body');
             //checking that bodyhas class "menu-hidden" - that is that menu is hidden by default
             expect(body.hasClass("menu-hidden")).toBe(true);
 
         });
-         /* Action: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
-          */
+    
+        /* Action: Write a test that ensures the menu changes
+         * visibility when the menu icon is clicked. This test
+         * should have two expectations: does the menu display when
+         * clicked and does it hide when clicked again.
+         */
         it('menu changes visibility when the menu icon is clicked', function(){
             var menuicon = $('.menu-icon-link');
             var body = $('body');
@@ -93,7 +95,7 @@ $(function() {
     
     describe('Initial Entries', function(){
         beforeEach(function(done){
-            loadFeed(0, done);
+        loadFeed(0, done);
     });
         /* Action: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
@@ -102,10 +104,10 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         it('there is at least one feed', function(done){
-        var entry = $('.feed a').children('.entry');
-        // checking if the feed has more than 0 entries
-        expect(entry.length).toBeGreaterThan(0);
-          done();
+            var entry = $('.feed a').children('.entry');
+            // checking if the feed has more than 0 entries
+            expect(entry.length).toBeGreaterThan(0);
+            done();
         });
 
     });
@@ -123,23 +125,18 @@ $(function() {
          */
       
         beforeEach(function(done){
-            //saving text of te first entry into var entry
-            entry = $('.entry')[0].innerText;
-            //loading second feed
-            loadFeed(1, done);
+            $('.feed').empty();
+             loadFeed(3, function() {
+                entry = $('.feed').html();
+                loadFeed(1, function(){
+                entryAfterchange = $('.feed').html();
+                done();
+                });
+            });
     });
     
-    it('the content changes when a new feed is loaded', function(done){
-        //saving text of te first entry into var entryAfterchange
-        entryAfterchange = $('.entry')[0].innerText;
-        // chacking if the content has changed after loading new feed (comapring entry and entryAfterchange)
-        expect(entry).not.toBe(entryAfterchange);
-          done();
+        it("new loadFeed changes content", function() {
+            expect(entry).not.toEqual(entryAfterchange);
         });
-
-    afterEach(function(done){
-        //loading back the first feed
-            loadFeed(0, done);
-    });
     });
 }());
