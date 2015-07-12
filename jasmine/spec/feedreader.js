@@ -11,7 +11,6 @@
 $(function() {
     /* Test Suit: "RSS Feeds."" */
     describe('RSS Feeds', function() {
-    
         /* This makes sure that the allFeeds variable has been defined 
          and it is not empty. 
          */
@@ -19,8 +18,6 @@ $(function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
         });
-
-
         /* Action: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
@@ -37,8 +34,6 @@ $(function() {
                 expect(feed.url.length).not.toBe(0);
             });
         });
-
-
         /* Action: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
@@ -56,10 +51,8 @@ $(function() {
             });
         });
     });
-
     /* Test suite: "The menu" */
     describe('The menu', function() {
-        
         /* Action: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
@@ -69,27 +62,23 @@ $(function() {
             var body = $('body');
             //checking that bodyhas class "menu-hidden" - that is that menu is hidden by default
             expect(body.hasClass("menu-hidden")).toBe(true);
-
         });
-    
         /* Action: Write a test that ensures the menu changes
          * visibility when the menu icon is clicked. This test
          * should have two expectations: does the menu display when
          * clicked and does it hide when clicked again.
          */
         it('menu changes visibility when the menu icon is clicked', function(){
-            var menuicon = $('.menu-icon-link');
+            var menuIcon = $('.menu-icon-link');
             var body = $('body');
-            menuicon.click();
+            menuIcon.click();
             //checking that menu shows up after a click
             expect(body.hasClass("menu-hidden")).toBe(false);
-            menuicon.click();
+            menuIcon.click();
             //checking that menu hides when clicked again
             expect(body.hasClass("menu-hidden")).toBe(true);
-
         });
     });
-
     /* Test suite: "Initial Entries" */
     describe('Initial Entries', function(){
         beforeEach(function(done){
@@ -107,15 +96,11 @@ $(function() {
             expect(entry.length).toBeGreaterThan(0);
             done();
         });
-
     });
-        
-
     /* Test suite: "New Feed Selection"*/
     describe('New Feed Selection', function(){
         var entry,
             entryAfterChange;
-
         /* Action: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
@@ -130,7 +115,6 @@ $(function() {
                 });
             });
     });
-    
         it("new loadFeed changes content", function() {
             expect(entry).not.toEqual(entryAfterChange);
         });
